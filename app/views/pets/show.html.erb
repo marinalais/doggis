@@ -16,6 +16,8 @@
   <dd><%= @pet.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:allows_photo) %>:</strong></dt>
   <dd><%= @pet.allows_photo %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:allergy) %>:</strong></dt>
+  <dd><%= @pet.allergy %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

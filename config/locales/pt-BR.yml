@@ -5,9 +5,12 @@ pt-BR:
       customer: "Cliente"
       pet: "Pets"
       stock: "Estoque"
-      product: "Produtos"
+      product: "Produto"
       order: "Pedido"
       order_item: "Item do Pedido"
+      pet_service: "Serviço"
+      appointment: "Agendamento"
+      appointment_item: "Item de agendamento"
     attributes:
       user:
         email: "E-mail"
@@ -30,7 +33,8 @@ pt-BR:
         allows_photo: "Permite Foto?"
         created_at: "Data de Criação"
         allergy: "Possui alergia?"
-        customer: "Dono"
+        customer: "Cliente"
+        customer_id: "Cliente"
       stock:
         description: "Descrição"
         operationdate: "Data da operação"
@@ -39,7 +43,7 @@ pt-BR:
       product:
         brand: "Marca"
         description: "Descrição"
-        quantity: "Qualidade"
+        quantity: "Quantidade"
         measury: "Medida"
         price: "Preço"
         created_at: "Data de Criação"
@@ -49,7 +53,25 @@ pt-BR:
         user_id: "Responsável"
         customer_id: "Cliente"
       order_item:
-          quantity: "Quantidade"
-          value: "Valor"
-          product_id: "Produto"
-          created_at: "Data de inclusão"
+        quantity: "Quantidade"
+        value: "Valor"
+        product_id: "Produto"
+        created_at: "Data de inclusão"
+      pet_service:
+        duration: "Duração"
+        price: "Preço"
+        name: "Nome"
+        description: "Descrição"
+        pataz_value_free: "PATAZ gratuitdade"
+        pataz_amount: "PATAZ acúmulo"
+        user_id: "Responsável"
+        created_at: "Data da criação"
+      appointment:
+        appointmentdate: "Data do agendamento"
+        value: "Valor"
+        user_id: "Responsável"
+        created_at: "Data da criação"
+      appointment_item:
+        petservice_id: "Serviço"
+        appointment_id: "Agendamento"
+        created_at: "Data da criação"

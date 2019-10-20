@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: carts
+#
+#  id             :integer          not null, primary key
+#  totalvalue     :decimal(, )
+#  order_id       :integer          not null
+#  appointment_id :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  totalvalue: 9.99
+  order: one
+  appointment: one
+
+two:
+  totalvalue: 9.99
+  order: two
+  appointment: two

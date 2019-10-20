@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_183906) do
+ActiveRecord::Schema.define(version: 2019_10_20_193107) do
+
+  create_table "appointment_items", force: :cascade do |t|
+    t.integer "petservice_id", null: false
+    t.integer "appointment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appointment_id"], name: "index_appointment_items_on_appointment_id"
+    t.index ["petservice_id"], name: "index_appointment_items_on_petservice_id"
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "appointmentdate"
+    t.integer "status"
+    t.decimal "value"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.decimal "totalvalue"
+    t.integer "order_id", null: false
+    t.integer "appointment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appointment_id"], name: "index_carts_on_appointment_id"
+    t.index ["order_id"], name: "index_carts_on_order_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -43,8 +72,32 @@ ActiveRecord::Schema.define(version: 2019_10_20_183906) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-# Could not dump table "pets" because of following StandardError
-#   Unknown type '' for column 'allergy'
+  create_table "pet_services", force: :cascade do |t|
+    t.integer "duration"
+    t.decimal "price"
+    t.string "name"
+    t.string "description"
+    t.decimal "pataz_value_free"
+    t.decimal "pataz_amount"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_pet_services_on_user_id"
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.string "name"
+    t.string "breed"
+    t.integer "pettype"
+    t.integer "petsize"
+    t.string "description"
+    t.boolean "allows_photo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id"
+    t.boolean "allergy"
+    t.index ["customer_id"], name: "index_pets_on_customer_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -80,10 +133,16 @@ ActiveRecord::Schema.define(version: 2019_10_20_183906) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointment_items", "appointments"
+  add_foreign_key "appointment_items", "petservices"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "carts", "appointments"
+  add_foreign_key "carts", "orders"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "users"
+  add_foreign_key "pet_services", "users"
   add_foreign_key "pets", "customers"
   add_foreign_key "stocks", "products"
 end

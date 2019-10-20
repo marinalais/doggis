@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: appointments
+#
+#  id              :integer          not null, primary key
+#  appointmentdate :datetime
+#  status          :integer
+#  value           :decimal(, )
+#  user_id         :integer          not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appointmentdate: 2019-10-20 16:10:19
+  status: 1
+  value: 9.99
+  user: one
+
+two:
+  appointmentdate: 2019-10-20 16:10:19
+  status: 1
+  value: 9.99
+  user: two

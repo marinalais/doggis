@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :carts
+  resources :appointment_items
+  resources :appointments
+  resources :pet_services
   resources :orders
   resources :customers
   devise_for :users
