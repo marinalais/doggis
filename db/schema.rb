@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_101411) do
+ActiveRecord::Schema.define(version: 2019_10_20_103315) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 2019_10_20_101411) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_order_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "orderdate"
+    t.decimal "totalvalue"
+    t.integer "orderitem_id", null: false
+    t.integer "user_id", null: false
+    t.integer "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["orderitem_id"], name: "index_orders_on_orderitem_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -76,5 +89,8 @@ ActiveRecord::Schema.define(version: 2019_10_20_101411) do
   end
 
   add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "customers"
+  add_foreign_key "orders", "orderitems"
+  add_foreign_key "orders", "users"
   add_foreign_key "stocks", "products"
 end

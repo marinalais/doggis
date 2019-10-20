@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id           :integer          not null, primary key
+#  orderdate    :datetime
+#  totalvalue   :decimal(, )
+#  orderitem_id :integer          not null
+#  user_id      :integer          not null
+#  customer_id  :integer          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orderdate: 2019-10-20 07:33:15
+  totalvalue: 9.99
+  orderitem: one
+  user: one
+  customer: one
+
+two:
+  orderdate: 2019-10-20 07:33:15
+  totalvalue: 9.99
+  orderitem: two
+  user: two
+  customer: two

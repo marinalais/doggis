@@ -1,32 +1,48 @@
-<%= form_with(model: order_item, local: true) do |form| %>
-  <% if order_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order_item.errors.count, "error") %> prohibited this order_item from being saved:</h2>
+<%= form_for @order_item, :html => { :class => "form-horizontal order_item" } do |f| %>
 
-      <ul>
-        <% order_item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <% if @order_item.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@order_item.errors.count, "error") %> prohibited this order_item from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @order_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.text_field :quantity %>
+  <div class="form-group">
+    <%= f.label :quantity, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :quantity, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:quantity) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :value, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :value, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:value) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :product_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :product_id, Product.all, :id, :name, prompt: true  %>
+    </div>
+    <%=f.error_span(:product_id) %>
   </div>
 
-  <div class="field">
-    <%= form.label :value %>
-    <%= form.text_field :value %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                order_items_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :product_id %>
-    <%= form.text_field :product_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

@@ -1,21 +1,20 @@
 # == Schema Information
 #
-# Table name: pets
+# Table name: orders
 #
 #  id           :integer          not null, primary key
-#  name         :string
-#  breed        :string
-#  pettype      :integer
-#  petsize      :integer
-#  description  :string
-#  allows_photo :boolean
+#  orderdate    :datetime
+#  totalvalue   :decimal(, )
+#  orderitem_id :integer          not null
+#  user_id      :integer          not null
+#  customer_id  :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
 
 require 'test_helper'
 
-class PetTest < ActiveSupport::TestCase
+class OrderTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
