@@ -6,6 +6,8 @@ pt-BR:
       pet: "Pets"
       stock: "Estoque"
       product: "Produtos"
+      order: "Pedido"
+      order_item: "Item do Pedido"
     attributes:
       user:
         email: "E-mail"
@@ -27,6 +29,8 @@ pt-BR:
         description: "Descrição"
         allows_photo: "Permite Foto?"
         created_at: "Data de Criação"
+        allergy: "Possui alergia?"
+        customer: "Dono"
       stock:
         description: "Descrição"
         operationdate: "Data da operação"
@@ -39,3 +43,13 @@ pt-BR:
         measury: "Medida"
         price: "Preço"
         created_at: "Data de Criação"
+      order:
+        orderdate: "Data do pedido"
+        totalvalue: "Valor Total"
+        user_id: "Responsável"
+        customer_id: "Cliente"
+      order_item:
+          quantity: "Quantidade"
+          value: "Valor"
+          product_id: "Produto"
+          created_at: "Data de inclusão"

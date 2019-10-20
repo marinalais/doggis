@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_103315) do
+ActiveRecord::Schema.define(version: 2019_10_20_183906) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -27,32 +27,24 @@ ActiveRecord::Schema.define(version: 2019_10_20_103315) do
     t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "order_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "orderdate"
     t.decimal "totalvalue"
-    t.integer "orderitem_id", null: false
     t.integer "user_id", null: false
     t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
-    t.index ["orderitem_id"], name: "index_orders_on_orderitem_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "pets", force: :cascade do |t|
-    t.string "name"
-    t.string "breed"
-    t.integer "pettype"
-    t.integer "petsize"
-    t.string "description"
-    t.boolean "allows_photo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "pets" because of following StandardError
+#   Unknown type '' for column 'allergy'
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -88,9 +80,10 @@ ActiveRecord::Schema.define(version: 2019_10_20_103315) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "customers"
-  add_foreign_key "orders", "orderitems"
   add_foreign_key "orders", "users"
+  add_foreign_key "pets", "customers"
   add_foreign_key "stocks", "products"
 end

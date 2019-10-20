@@ -44,18 +44,32 @@
     <%=f.error_span(:petsize) %>
   </div>
   <div class="form-group">
-    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <%= f.label :customer_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :description, :class => 'form-control' %>
+      <%= f.collection_select :customer_id, Customer.all, :id, :name, prompt: true  %>
     </div>
-    <%=f.error_span(:description) %>
+    <%=f.error_span(:customer_id) %>
   </div>
-  <div class="form-group">
+   <div class="form-group">
     <%= f.label :allows_photo, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.check_box :allows_photo, :class => 'form-control' %>
     </div>
     <%=f.error_span(:allows_photo) %>
+  </div>
+   <div class="form-group">
+    <%= f.label :allergy, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.check_box :allergy, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:allergy) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
   </div>
 
   <div class="form-group">

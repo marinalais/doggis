@@ -11,6 +11,8 @@
 #  allows_photo :boolean
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  allergy      :
+#  customer_id  :integer
 #
 
 require 'test_helper'
