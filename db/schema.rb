@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_075540) do
+ActiveRecord::Schema.define(version: 2019_10_20_092123) do
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
@@ -23,4 +23,27 @@ ActiveRecord::Schema.define(version: 2019_10_20_075540) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.string "description"
+    t.decimal "quantity"
+    t.string "measury"
+    t.decimal "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.integer "stockoperation"
+    t.string "description"
+    t.decimal "quantity"
+    t.datetime "operationdate"
+    t.integer "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_stocks_on_product_id"
+  end
+
+  add_foreign_key "stocks", "products"
 end

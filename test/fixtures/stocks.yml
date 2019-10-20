@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stockoperation: 1
+  description: MyString
+  quantity: 9.99
+  operationdate: 2019-10-20 06:21:23
+  product: one
+
+two:
+  stockoperation: 1
+  description: MyString
+  quantity: 9.99
+  operationdate: 2019-10-20 06:21:23
+  product: two

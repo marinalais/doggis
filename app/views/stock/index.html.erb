@@ -1,4 +1,4 @@
-<%- model_class = Pet -%>
+<%- model_class = Stock -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -6,32 +6,30 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:breed) %></th>
-      <th><%= model_class.human_attribute_name(:pettype) %></th>
-      <th><%= model_class.human_attribute_name(:petsize) %></th>
+      <th><%= model_class.human_attribute_name(:stockoperation) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:allows_photo) %></th>
+      <th><%= model_class.human_attribute_name(:quantity) %></th>
+      <th><%= model_class.human_attribute_name(:operationdate) %></th>
+      <th><%= model_class.human_attribute_name(:product_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @pets.each do |pet| %>
+    <% @stocks.each do |stock| %>
       <tr>
-        <td><%= link_to pet.id, pet_path(pet) %></td>
-        <td><%= pet.name %></td>
-        <td><%= pet.breed %></td>
-        <td><%= pet.pettype %></td>
-        <td><%= pet.petsize %></td>
-        <td><%= pet.description %></td>
-        <td><%= pet.allows_photo %></td>
-        <td><%=l pet.created_at %></td>
+        <td><%= link_to stock.id, stock_path(stock) %></td>
+        <td><%= stock.stockoperation %></td>
+        <td><%= stock.description %></td>
+        <td><%= stock.quantity %></td>
+        <td><%= stock.operationdate %></td>
+        <td><%= stock.product_id %></td>
+        <td><%=l stock.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_pet_path(pet), :class => 'btn btn-default btn-xs' %>
+                      edit_stock_path(stock), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      pet_path(pet),
+                      stock_path(stock),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
@@ -42,5 +40,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_pet_path,
+            new_stock_path,
             :class => 'btn btn-primary' %>
