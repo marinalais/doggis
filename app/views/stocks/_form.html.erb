@@ -18,7 +18,7 @@
   <div class="form-group">
     <%= f.label :stockoperation, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :stockoperation, :class => 'form-control' %>
+       <%= f.select(:stockoperation, Stock.stockoperations.keys.map {|role| [role.titleize,role]}) %>
     </div>
     <%=f.error_span(:stockoperation) %>
   </div>
@@ -39,14 +39,14 @@
   <div class="form-group">
     <%= f.label :operationdate, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :operationdate, :class => 'form-control' %>
+      <%= f.date_field :operationdate, :class => 'form-control' %>
     </div>
     <%=f.error_span(:operationdate) %>
   </div>
   <div class="form-group">
     <%= f.label :product_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :product_id, :class => 'form-control' %>
+       <%= f.collection_select :product_id, Product.all, :id, :name, prompt: true  %> 
     </div>
     <%=f.error_span(:product_id) %>
   </div>

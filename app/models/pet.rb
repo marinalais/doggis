@@ -15,6 +15,7 @@
 
 class Pet < ApplicationRecord
 
-
+	enum pettype: [:cat, :dog, :rabbit, :another]
+	enum petsize: [:small, :medium, :big]
 
 end

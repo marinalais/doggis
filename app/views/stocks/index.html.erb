@@ -23,7 +23,7 @@
         <td><%= stock.description %></td>
         <td><%= stock.quantity %></td>
         <td><%= stock.operationdate %></td>
-        <td><%= stock.product_id %></td>
+        <td><%= stock.product.name %></td>
         <td><%=l stock.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

@@ -14,4 +14,6 @@
 
 class Stock < ApplicationRecord
   belongs_to :product
+  enum stockoperation: [:debit, :credit]
+
 end

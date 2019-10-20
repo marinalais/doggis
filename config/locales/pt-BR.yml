@@ -3,6 +3,9 @@ pt-BR:
     models:
       user: "Usuário"
       customer: "Cliente"
+      pet: "Pets"
+      stock: "Estoque"
+      product: "Produtos"
     attributes:
       user:
         email: "E-mail"
@@ -15,4 +18,24 @@ pt-BR:
         identification: "CPF"
         address: "Endereço"
         email: "E-mail"
+        created_at: "Data de Criação"
+      pet:
+        name: "Nome"
+        pettype: "Tipo"
+        petsize: "Porte"
+        breed: "Raça"
+        description: "Descrição"
+        allows_photo: "Permite Foto?"
+        created_at: "Data de Criação"
+      stock:
+        description: "Descrição"
+        operationdate: "Data da operação"
+        product_id: "Produto"
+        stockoperation: "Operação"
+      product:
+        brand: "Marca"
+        description: "Descrição"
+        quantity: "Qualidade"
+        measury: "Medida"
+        price: "Preço"
         created_at: "Data de Criação"
