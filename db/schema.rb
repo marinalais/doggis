@@ -140,7 +140,6 @@ ActiveRecord::Schema.define(version: 2019_10_20_193107) do
   add_foreign_key "carts", "orders"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "users"
-  add_foreign_key "pet_services", "users"
   add_foreign_key "pets", "customers"
   add_foreign_key "stocks", "products"
 end
